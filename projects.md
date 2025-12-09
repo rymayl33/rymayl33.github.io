@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "https://rylee.albrecht.us/"
-permalink: /README
+permalink: /projects
 ---
 
-Personal website
+Here are my projects
