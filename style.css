@@ -8,15 +8,10 @@ body {
 
 /* ===== Header & Navigation ===== */
 header {
-  background: #222;
+  background: #009688;
   padding: 20px;
   color: white;
   text-align: center;
-}
-
-nav {
-  background-color: #009688; 
-  padding: 15px;
 }
 
 nav a {
@@ -45,7 +40,7 @@ h2 {
 footer {
   margin-top: 60px;
   padding: 20px;
-  background: #222;
+  background: #009688;
   color: #aaa;
   text-align: center;
   font-size: 14px;
