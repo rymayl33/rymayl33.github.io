@@ -5,3 +5,4 @@ permalink: /
 ---
 
 Welcome to My Website!
+[Projects](https://rylee.albrecht.us/projects)
