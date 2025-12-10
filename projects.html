@@ -1,7 +1,59 @@
----
-layout: page
-title: "https://rylee.albrecht.us/"
-permalink: /projects
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Rylee Albrecht</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-Here are my projects
+<body>
+
+  <header>
+    <h1>Projects</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="research.html">Research</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Featured Projects</h2>
+
+      <h3>🧠 Brain Tumor Segmentation (U-Net & 3D U-Net)</h3>
+      <p>
+        Built 2D and 3D U-Net architectures for tumor segmentation using MRI scans.
+        Evaluated using Dice score and Hausdorff Distance with 5-fold cross-validation.
+      </p>
+
+      <h3>🫁 Pneumonia Detection (ViT-Tiny)</h3>
+      <p>
+        Trained a Vision Transformer from scratch for pediatric chest X-ray classification.
+        Achieved strong binary classification performance and produced Grad-CAM heatmaps.
+      </p>
+
+      <h3>🔬 Nuclei Instance Segmentation (MobileSAM + LoRA)</h3>
+      <p>
+        Fine-tuned MobileSAM using LoRA for efficient nuclei segmentation on the NuInsSeg dataset.
+        Used connected components and colored masks for instance-level evaluation.
+      </p>
+
+      <h3>📦 Cell Type Classification (Swin Transformer)</h3>
+      <p>
+        Worked with a 10GB cell microscopy dataset and optimized Swin-Tiny for fast training on limited GPU memory.
+      </p>
+
+    </section>
+
+  </div>
+
+  <footer>
+    © 2025 Rylee Albrecht — All Rights Reserved
+  </footer>
+
+</body>
+</html>
