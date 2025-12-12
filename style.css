@@ -22,12 +22,12 @@ nav a {
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #00fcfc;
 }
 
 /* ===== Layout ===== */
 .container {
-  max-width: 900px;
+  max-width: 850px;
   margin: 40px auto;
   padding: 0 20px;
 }
@@ -37,7 +37,7 @@ h2 {
 }
 
 /* ===== Footer ===== */
-footer {
+.footer-content {
   margin-top: 60px;
   padding: 20px;
   background: #009688;
@@ -45,3 +45,77 @@ footer {
   text-align: center;
   font-size: 14px;
 }
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Container for the section */
+#links {
+  max-width: 850px;  
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Make the links row flex on desktop */
+#links .icon-link {
+  display: inline-flex;       
+  width: 30%;                 
+  min-width: 150px;           
+  margin: 1%;                 
+  text-decoration: none;
+  color: inherit;
+  vertical-align: top;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Icon + text layout */
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon styling */
+.icon-wrapper svg {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+/* Text styling */
+.icon-wrapper span {
+  font-size: 15px;
+  margin-top: 4px;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for icon + text */
+.icon-link:hover .icon-wrapper svg,
+.icon-link:hover .icon-wrapper span {
+  color: #0077ff;  
+  transform: translateY(-3px);
+}
+
+/* Mobile stacking */
+@media (max-width: 600px) {
+  #links .icon-link {
+    display: block;  
+    width: 80%;  
+    margin: 15px auto; 
+  }
+}
+
+
+
+
+
+
+
+
+
+
