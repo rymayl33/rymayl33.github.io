@@ -14,9 +14,15 @@ header {
   text-align: center;
 }
 
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
 nav a {
   color: white;
   margin: 0 15px;
+  font-size: 18px;
   text-decoration: none;
   font-weight: bold;
 }
@@ -72,6 +78,26 @@ h2 {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
+/* Flex container for image + text */
+.about {
+  display: flex;
+  align-items: flex-start; 
+  gap: 20px;             
+  flex-wrap: wrap;         
+}
+
+/* Image styling */
+.about-img {
+  width: 300px;    
+  height: auto;         
+  border-radius: 8px;     
+  flex-shrink: 0;         
+}
+
+.about-text {
+  flex: 1;            
+}
+
 /* Icon + text layout */
 .icon-wrapper {
   display: flex;
@@ -89,7 +115,7 @@ h2 {
 
 /* Text styling */
 .icon-wrapper span {
-  font-size: 15px;
+  font-size: 30px;
   margin-top: 4px;
   transition: color 0.3s ease;
 }
@@ -114,6 +140,10 @@ h2 {
     height: 300px;
     margin-bottom: 6px;
     transition: color 0.3s ease;
+  }
+
+  .about-text {
+    flex: 0 1 auto;        
   }
 }
 
