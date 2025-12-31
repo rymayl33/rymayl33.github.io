@@ -14,6 +14,28 @@ header {
   text-align: center;
 }
 
+.nav {
+  width: 100%;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 0;          
+  font-size: 24px;
+  cursor: pointer;
+}
+
 p {
   font-size: 18px;
   line-height: 1.5;
@@ -144,6 +166,33 @@ h2 {
 
   .about-text {
     flex: 0 1 auto;        
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;   /* below header */
+    right: 10px;
+    width: 180px;
+    background-color: #009688;
+    border: 1px solid #ccc;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex; 
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1100; /* above menu */
+    line-height: 60px; /* vertically center */
   }
 }
 

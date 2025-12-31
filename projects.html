@@ -24,53 +24,210 @@
 
     <section>
       <h2>Photography Agent</h2>
-      <a href="https://github.com/douglasglover3/photography-agent-backend">https://github.com/douglasglover3/photography-agent-backend</a>
-      <a href="https://github.com/douglasglover3/photography-agent-frontend">https://github.com/douglasglover3/photography-agent-frontend</a>
+    
       <p>
-        This project uses AI to automatically capture, select, and enhance images based on
-        scene understanding and user preference. It combines computer vision, planning,
-        and real-time decision making.
+        The Photography Agent is a collaborative project focused on building an intelligent photo
+        organization and editing system powered by an agentic large language model (LLM).
+        The LLM interprets natural language user requests and dynamically invokes specialized
+        computer vision tools for photo filtering and editing.
       </p>
     
+      <h3>My Role</h3>
+      <ul>
+        <li>Designed and implemented the agentic LLM that serves as the system’s decision-making core</li>
+        <li>Fine-tuned a large language model to reliably perform structured tool selection and orchestration</li>
+        <li>Handled prompt engineering, tool-call formatting, and error recovery for invalid user requests</li>
+      </ul>
+    
+      <h3>LLM Agent (My Contribution)</h3>
+      <ul>
+        <li>Built on top of <strong>Llama-3-8B-Instruct</strong></li>
+        <li>Fine-tuned using <strong>LoRA</strong> on ~2,000 curated instruction examples</li>
+        <li>Trained to:
+          <ul>
+            <li>Generate valid JSON tool-call outputs</li>
+            <li>Select appropriate tools based on user intent</li>
+            <li>Respond naturally when no tool invocation is required</li>
+            <li>Gracefully handle ambiguous or invalid requests</li>
+          </ul>
+        </li>
+        <li>Integrated a custom system prompt to guide agent behavior during training and inference</li>
+        <li>Evaluated on a held-out test set of 225 examples</li>
+        <li>Achieved <strong>88% overall response accuracy</strong> across tool selection and conversational tasks</li>
+      </ul>
+    
+      <h3>System Tools (Team Contributions)</h3>
+      <ul>
+        <li>Focus assessment using segmentation-guided sharpness metrics</li>
+        <li>Exposure evaluation via luminance-based analysis</li>
+        <li>Color balance filtering using RGB statistics</li>
+        <li>Semantic album filtering with OpenCLIP</li>
+        <li>Background blur using panoptic segmentation and depth-aware blurring</li>
+        <li>Object and person removal via segmentation and diffusion-based inpainting</li>
+      </ul>
+
+      <h3>Github Links</h3>
+      <a href="https://github.com/douglasglover3/photography-agent-backend">https://github.com/douglasglover3/photography-agent-backend</a><br>
+      <a href="https://github.com/douglasglover3/photography-agent-frontend">https://github.com/douglasglover3/photography-agent-frontend</a>
+    
+      <h3>Demo of Photography Agent</h3>
+      <a href="videos/photo_agent_demo.mp4">Watch demo in new tab</a>
       <div class="video-container">
-        <video width="600" controls>
+        <video width="800" controls>
           <source src="videos/photo_agent_demo.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
     </section>
+    
 
     <section>
-      <h2>Cell Classification</h2>
-      <a href="https://github.com/rymayl33/Cell_Classification">https://github.com/rymayl33/Cell_Classification</a>
-      <p>1. Project overview (3–5 lines)
-        Include:
-        -Problem statement (what you were trying to solve)
-        -Your role (solo, team, lead, etc.)
-        -Key techniques (models, datasets, tools)
-        -Outcome (performance, insight, or result)
-        
-        Example:
-        
-        Brain Tumor Segmentation using 2D & 3D U-Net
-        Implemented and evaluated 2D and 3D U-Net models for brain tumor segmentation using 5-fold cross-validation on MRI data. Achieved improved Dice scores using 3D context and analyzed Hausdorff Distance for boundary accuracy.</p>
-      <p>2. Technical details (bullet points, skimmable)
-        Include:
-        Data: dataset name, size, preprocessing
-        Models: architecture choices & why
-        Training: loss, optimizer, tricks
-        Evaluation: metrics used and why
-        Example:
-        Dataset: BraTS-style MRI slices (imagesTr)
-        Models: 2D U-Net vs 3D U-Net
-        Loss: Dice + BCE
-        Metrics: Dice Score, Hausdorff Distance
-        Validation: 5-fold cross-validation</p>
-      <p>3. Results (numbers + visuals)</p>
-      <p>4. What you learned or decisions you made</p>
-      <p>5. Links to more info</p>
+      <h2>Cell Type & Cancer Classification (CellNet)</h2>
     
+      <p>
+        This project applies deep learning to automated cell-type and cancer classification using the
+        CellNet medical imaging dataset. Models classify images into 19 cell types and distinguish
+        benign cells from multiple cancer subtypes, with the goal of improving speed and reliability
+        in medical image analysis.
+      </p>
+    
+      <h3>My Role</h3>
+      <ul>
+        <li>Prepared and organized the CellNet dataset for large-scale training</li>
+        <li>Implemented and optimized the Swin Transformer model</li>
+        <li>Conducted hyperparameter tuning and large-scale training experiments</li>
+        <li>Contributed to the technical report, README documentation, and presentation slides</li>
+      </ul>
+    
+      <h3>Dataset</h3>
+      <ul>
+        <li>CellNet: First Official Beta Test Version of the CellNet Medical Image Database</li>
+        <li>19 cell types across benign and multiple cancer classes</li>
+        <li>Images resized to 128 × 128 × 3</li>
+        <li>Train / Validation / Test split: 75% / 10% / 15%</li>
+        <li>Over 122,000 total images</li>
+      </ul>
+    
+      <h3>Evaluation Metrics</h3>
+      <ul>
+        <li>Test accuracy</li>
+        <li>Weighted F1 score (class-imbalanced evaluation)</li>
+        <li>Training computation time</li>
+        <li>Confusion matrices for per-class error analysis</li>
+      </ul>
+    
+      <h3>Swin Transformer (Primary Contribution)</h3>
+      <ul>
+        <li>Implemented a hierarchical Swin Transformer for large-scale medical image classification</li>
+        <li>Used shifted-window self-attention for efficient, scalable training</li>
+        <li>Explored architectural trade-offs to reduce compute without sacrificing accuracy</li>
+        <li>Reduced embedding dimension and attention heads to significantly improve runtime</li>
+        <li>Performed grid search over learning rate, batch size, and MLP ratio</li>
+        <li>Final configuration achieved:
+          <ul>
+            <li><strong>Test Accuracy:</strong> 97.6%</li>
+            <li><strong>Weighted F1 Score:</strong> 0.976</li>
+          </ul>
+        </li>
+        <a href="images/swin_transformer_accuracy.png" target="_blank">
+          <img src="images/swin_transformer_accuracy.png"
+               width="400"
+               alt="Plot of SWIN transformer test and training accuracy">
+        </a>
+        
+        <a href="images/swin_transformer_loss.png" target="_blank">
+          <img src="images/swin_transformer_loss.png"
+               width="400"
+               alt="Plot of SWIN transformer test and training loss">
+        </a>
+        
+        <a href="images/swin_transformer_cm.png" target="_blank">
+          <img src="images/swin_transformer_cm.png"
+               width="400"
+               alt="SWIN transformer confusion matrix">
+        </a>
+        
+        <li>Maintained stable training with no observed overfitting</li>
+        <li>Demonstrated strong generalization across all 19 classes</li>
+      </ul>
+    
+      <h3>Baseline Models (Team Comparison)</h3>
+      <ul>
+        <li><strong>ResNet50:</strong> Strong performance with 83.9% test accuracy and 0.826 weighted F1</li>
+        <li><strong>EfficientNetB0:</strong> Moderate accuracy but poor weighted F1 due to class imbalance</li>
+        <li><strong>Multilayer Perceptron:</strong> Performed poorly on large-scale multi-class image data</li>
+      </ul>
+      
+      <details>
+        <summary>View results for baseline models (ResNet, EfficientNet, MLP)</summary>
+    
+        <p>
+          The following models were evaluated during development but underperformed
+          relative to the Swin Transformer in terms of weighted F1 score and convergence.
+        </p>
+
+        <h4>EfficientNet</h4>
+          <a href="images/efficientnet_accuracy_loss.png" target="_blank">
+            <img src="images/efficientnet_accuracy_loss.png"
+                alt="EfficientNet training and testing accuracy/loss"
+                width="400">
+          </a>
+
+          <a href="images/efficientnet_cm.png" target="_blank">
+            <img src="images/efficientnet_cm.png"
+                alt="EfficientNet confusion matrix"
+                width="400">
+          </a>
+
+          <h4>ResNet50</h4>
+          <a href="images/resnet_accuracy.png" target="_blank">
+            <img src="images/resnet_accuracy.png"
+                alt="ResNet training and testing accuracy"
+                width="400">
+          </a>
+
+          <a href="images/resnet_cm.png" target="_blank">
+            <img src="images/resnet_cm.png"
+                alt="ResNet confusion matrix"
+                width="400">
+          </a>
+
+          <h4>Multilayer Perceptron</h4>
+          <a href="images/MLP_accuracy.png" target="_blank">
+            <img src="images/MLP_accuracy.png"
+                alt="MLP training and testing accuracy"
+                width="400">
+          </a>
+
+          <a href="images/MLP_cm.png" target="_blank">
+            <img src="images/MLP_cm.png"
+                alt="MLP confusion matrix"
+                width="400">
+          </a>
+
+      </details>
+      
+    
+      <h3>Results & Conclusions</h3>
+      <ul>
+        <li>Swin Transformer significantly outperformed all baseline CNN and MLP models</li>
+        <li>Hierarchical attention proved highly effective for large, diverse medical image datasets</li>
+        <li>Weighted F1 score confirmed robust performance across imbalanced cancer classes</li>
+        <li>Results highlight Swin Transformers as a strong backbone for medical imaging tasks</li>
+      </ul>
+    
+      <h3>Future Work</h3>
+      <ul>
+        <li>Train with higher-resolution images to capture finer cellular detail</li>
+        <li>Increase training epochs with improved computational resources</li>
+        <li>Further dataset curation and class balancing</li>
+        <li>Explore transfer learning and hybrid CNN–Transformer architectures</li>
+      </ul>
+
+      <h3>GHithub Link</h3>
+      <a href="https://github.com/rymayl33/Cell_Classification">https://github.com/rymayl33/Cell_Classification</a>
     </section>
+      
 
     <section>
       <h2>Diabetic Retinopathy Classification Preprocessing Evaluation</h2>
