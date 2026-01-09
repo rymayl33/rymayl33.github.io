@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f7f7f7;
-  color: #333;
+  background: #4f4949;
+  color: #dedede;
 }
 
 /* ===== Header & Navigation ===== */
@@ -80,6 +80,23 @@ h2 {
   margin-top: 20px;
 }
 
+.text-link:link {
+  color: #41d3e3;/* normal link */
+}
+
+.text-link:visited {
+  color: #388eff; /* visited link */
+}
+
+.text-link:hover {
+  color: #27ea71; /* hover */
+  text-decoration: underline;
+}
+
+.text-link:active {
+  color: #41e846; /* while clicking */
+}
+
 /* Container for the section */
 #links {
   max-width: 850px;  
@@ -149,6 +166,24 @@ h2 {
   transform: translateY(-3px);
 }
 
+.DCR-results {
+  display: flex;
+  align-items: flex-start; 
+  gap: 20px;             
+  flex-wrap: wrap; 
+}
+
+.DCR-image {
+  width: 300px;    
+  height: auto;         
+  border-radius: 8px;     
+  flex-shrink: 0;
+}
+
+.DRC-results-text {
+  flex: 1;            
+}
+
 /* Mobile stacking */
 @media (max-width: 750px) {
   #links .icon-link {
@@ -193,6 +228,12 @@ h2 {
     cursor: pointer;
     z-index: 1100; /* above menu */
     line-height: 60px; /* vertically center */
+  }
+
+  @media (max-width: 768px) {
+    .DCR-results {
+      flex-direction: column;
+    }
   }
 }
 
