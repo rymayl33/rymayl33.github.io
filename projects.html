@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    (function () {
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects — Rylee Albrecht</title>
@@ -11,12 +22,35 @@
 
   <header>
     <h1>Projects</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="courses.html">Courses</a>
-      <a href="projects.html" class="active">Projects</a>
-      <a href="research.html">Research</a>
-      <a href="contact.html">Contact</a>
+  
+    <nav class="main-nav">
+      <button id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 
+            18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 
+            3.75 0 1 1-7.5 0 3.75 3.75 0 1 1 7.5 0Z" />
+        </svg>
+  
+        <svg class="icon moon" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 
+            0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 
+            12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </svg>
+      </button>
+  
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+  
+      <div class="nav-toggle" id="nav-toggle">&#9776;</div>
     </nav>
   </header>
 
@@ -60,10 +94,11 @@
           <li><strong>Object removal tool:</strong> remove people or vehicles from selected images</li>
         </ul>
 
-      <h3>GitHub</h3>
+      <h3>Links</h3>
         <ul>
           <li><a href="https://github.com/douglasglover3/photography-agent-backend" class="text-link">Backend repository</a></li>
           <li><a href="https://github.com/douglasglover3/photography-agent-frontend" class="text-link">Frontend repository</a></li>
+          <li><a href="docs/Photography Agent Report.pdf" target="_blank" rel="noopener" class="text-link">Project Report (PDF)</a></li></li>
         </ul>
     
       <h3>Demo of Photography Agent</h3>
@@ -89,31 +124,33 @@
         <li>Compared five preprocessing pipelines, including CLAHE-based contrast enhancement, histogram equalization, Gaussian subtractive normalization, and a baseline. preprocessing</li>
       </ul>
 
-      <h3>Results</h3>
-
-      <div class="DRC-results">
-        <ul class="DRC-results-text">
-          <li>Evaluated accuracy, precision, recall, and F1-scores of each model fine-tuned on data using each preprocessing method.</li>
-          <li>Plot shows that preprocessing effectiveness is model-dependent, with CLAHE + Gaussian filtering improving ResNet-50 and EfficientNet performance, while the hybrid DenseSwin model performed best with standard preprocessing.</li>
-          <li>This highlights the importance of architecture-aware preprocessing strategies for DR screening systems.</li>
-        </ul>
-
-        <a href="images/DRC_plots.png" target="_blank" class="DRC-plot">
-          <img
-            src="images/DRC_plots.png"
-            width="400"
-            alt="Plot of model performance across preprocessing methods"
-            class="DRC-image"
-          >
-        </a>
-      </div>
-
       <h3>My Contributions</h3>
         <ul>
           <li>Implemented and fine-tuned EfficientNet and DenseNet-based (DenseSwin) models.</li>
           <li>Implemented retinal image preprocessing pipelines, including Gaussian Subtractive Normalization, CLAHE on the green channel with median filtering, and standard preprocessing.</li>
           <li>Performed quantitative evaluation and result visualization, including accuracy, precision, recall, and F1 score comparisons across models and preprocessing methods.</li>
         </ul>
+
+      <h3>Results</h3>
+
+      <div class="DRC-results">
+        <div class="DRC-results-text">
+          <ul>
+            <li>Evaluated accuracy, precision, recall, and F1-scores of each model fine-tuned on data using each preprocessing method.</li>
+            <li>Plot shows that preprocessing effectiveness is model-dependent, with CLAHE + Gaussian filtering improving ResNet-50 and EfficientNet performance, while the hybrid DenseSwin model performed best with standard preprocessing.</li>
+            <li>This highlights the importance of architecture-aware preprocessing strategies for DR screening systems.</li>
+          </ul>
+        </div>
+
+        <div class="DRC-image">
+          <a href="images/DRC_plots.png" target="_blank">
+            <img
+              src="images/DRC_plots.png"
+              width="400"
+              alt="Plot of model performance across preprocessing methods">
+          </a>
+        </div>
+      </div>
 
       <h3>Links</h3>
         <ul>
@@ -126,35 +163,15 @@
       <h2>Cell Type & Cancer Classification (CellNet) <span class="project-year">(Fall 2024)</span></h2>
     
       <p>
-        This project applies deep learning to automated cell-type and cancer classification using the
+        This project applies deep learning to automated cell-type and cancer multi-classification using the
         CellNet medical imaging dataset. Models classify images into 19 cell types and distinguish
         benign cells from multiple cancer subtypes, with the goal of improving speed and reliability
         in medical image analysis.
       </p>
-    
-      <h3>My Role</h3>
       <ul>
-        <li>Prepared and organized the CellNet dataset for large-scale training</li>
-        <li>Implemented and optimized the Swin Transformer model</li>
-        <li>Conducted hyperparameter tuning and large-scale training experiments</li>
-        <li>Contributed to the technical report, README documentation, and presentation slides</li>
-      </ul>
-    
-      <h3>Dataset</h3>
-      <ul>
-        <li>CellNet: First Official Beta Test Version of the CellNet Medical Image Database</li>
-        <li>19 cell types across benign and multiple cancer classes</li>
-        <li>Images resized to 128 × 128 × 3</li>
-        <li>Train / Validation / Test split: 75% / 10% / 15%</li>
-        <li>Over 122,000 total images</li>
-      </ul>
-    
-      <h3>Evaluation Metrics</h3>
-      <ul>
-        <li>Test accuracy</li>
-        <li>Weighted F1 score (class-imbalanced evaluation)</li>
-        <li>Training computation time</li>
-        <li>Confusion matrices for per-class error analysis</li>
+        <li>Fine-tuned and evaluated 4 models(ResNet, EfficientNet, Multilayer Perceptron (MLP), and Swin transformer) using the
+          <a href="https://www.kaggle.com/datasets/johncapocyan/cellnet-beta-version" class="text-link">CellNet</a> dataset</li>
+        <li>Evaluated models using test accuracy, weighted F1-score, training computation time, and confusion matrices</li>
       </ul>
     
       <h3>Swin Transformer (Primary Contribution)</h3>
@@ -213,7 +230,7 @@
                 alt="EfficientNet training and testing accuracy/loss"
                 width="400">
           </a>
-
+          <p>Data</p>
           <a href="images/efficientnet_cm.png" target="_blank">
             <img src="images/efficientnet_cm.png"
                 alt="EfficientNet confusion matrix"
@@ -256,22 +273,30 @@
         <li>Weighted F1 score confirmed robust performance across imbalanced cancer classes</li>
         <li>Results highlight Swin Transformers as a strong backbone for medical imaging tasks</li>
       </ul>
-    
-      <h3>Future Work</h3>
-      <ul>
-        <li>Train with higher-resolution images to capture finer cellular detail</li>
-        <li>Increase training epochs with improved computational resources</li>
-        <li>Further dataset curation and class balancing</li>
-        <li>Explore transfer learning and hybrid CNN–Transformer architectures</li>
-      </ul>
 
-      <h3>GHithub Link</h3>
-      <a href="https://github.com/rymayl33/Cell_Classification" class="text-link">https://github.com/rymayl33/Cell_Classification</a>
+      <h3>Links</h3>
+        <ul>
+          <li><a href="https://github.com/rymayl33/Cell_Classification" class="text-link">Github Repository</a></li>
+          <li><a href="docs/Machine Learning Project Final Report.pdf" target="_blank" rel="noopener" class="text-link">Project Report (PDF)</a></li></li>
+        </ul>
     </section>
 
     <section>
       <h2>Captcha Recognition <span class="project-year">(Fall 2023)</span></h2></h2>
-      <p>Deep learning project to train a model to recognize and solve text-based and image-based captchas. code found at <a href="https://github.com/rymayl33/captcha_recognition" class="text-link">https://github.com/rymayl33/captcha_recognition</a></p>
+      <p>Deep learning project to train a model to recognize and solve text-based and image-based captchas. code found at ...</p>
+      <ul>
+        <li>Fine-tuned  using the
+          <a href="https://www.kaggle.com/datasets/fournierp/captcha-version-2-images" class="text-link">CAPTCHA</a> dataset</li>
+        <li>Evaluated models using test accuracy, weighted F1-score, training computation time, and confusion matrices</li>
+      </ul>
+
+      <h3>Results</h3>
+
+      <h3>Links</h3>
+        <ul>
+          <li><a href="https://github.com/rymayl33/captcha_recognition" class="text-link">Github Repository</a></li>
+          <li><a href="docs/captcha_report.pdf" target="_blank" rel="noopener" class="text-link">Project Report (PDF)</a></li></li>
+        </ul>
     </section>
 
   </div>
@@ -288,6 +313,8 @@
   
       <p>© 2025 Rylee Albrecht — All Rights Reserved</p>
     </div>
-
+  </footer>
+  <script src="javascript/nav.js"></script>
+  <script src="javascript/theme.js"></script>
 </body>
 </html>
