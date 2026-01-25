@@ -105,6 +105,7 @@ nav a:hover {
   max-width: 850px;
   margin: 40px auto;
   padding: 0 20px;
+  text-align: left;
 }
 
 h2 {
@@ -119,6 +120,16 @@ h2 {
   color: white;
   text-align: center;
   font-size: 14px;
+}
+
+.short-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.short-page .container {
+  flex: 1;
 }
 
 .video-container {
