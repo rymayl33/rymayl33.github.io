@@ -1,10 +1,8 @@
-/* ===== Global Styles ===== */
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+/* ===== Header & Navigation ===== */
+html {
+  forced-color-adjust: none;
 }
 
-/* ===== Header & Navigation ===== */
 header {
   background: #009688;
   padding: 20px;
@@ -23,6 +21,8 @@ html.dark {
 }
 
 body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
