@@ -66,7 +66,7 @@
         computer vision tools for photo filtering and editing.
       </p>
     
-      <h3>LLM Agent (My Contribution)</h3>
+      <h3>LLM Agent (Primary Contribution)</h3>
       <ul>
         <li>Base of <strong>Llama-3-8B-Instruct</strong></li>
         <li>Fine-tuned using <strong>LoRA</strong> on 1,985 curated examples</li>
@@ -79,7 +79,10 @@
             <li>Handle ambiguous or invalid requests appropriately</li>
           </ul>
         </li>
-        <li>Integrated a custom system prompt to guide agent behavior during training and inference</li>
+        <li>
+          Designed and iteratively refined a <strong>custom system prompt</strong>, where prompt engineering was
+          <strong>crucial to improving response consistency, reducing hallucinations, and enforcing structured outputs</strong>
+        </li>
         <li>Evaluated using a held-out, shuffled test set of 218 examples</li>
         <li>Achieved <strong>88% overall response accuracy</strong> across tool selection and conversational tasks</li>
       </ul>
@@ -164,7 +167,7 @@
     
       <p>
         This project applies deep learning to automated cell-type and cancer multi-classification using the
-        CellNet medical imaging dataset. Models classify images into 19 cell types and distinguish
+        CellNet medical imaging dataset. The models classify images into 19 cell types and distinguish
         benign cells from multiple cancer subtypes, with the goal of improving speed and reliability
         in medical image analysis.
       </p>
@@ -187,37 +190,52 @@
             <li><strong>Weighted F1 Score:</strong> 0.976</li>
           </ul>
         </li>
-        <a href="images/swin_transformer_accuracy.png" target="_blank">
-          <img src="images/swin_transformer_accuracy.png"
-               width="400"
-               alt="Plot of SWIN transformer test and training accuracy">
-        </a>
-        
-        <a href="images/swin_transformer_loss.png" target="_blank">
-          <img src="images/swin_transformer_loss.png"
-               width="400"
-               alt="Plot of SWIN transformer test and training loss">
-        </a>
-        
-        <a href="images/swin_transformer_cm.png" target="_blank">
-          <img src="images/swin_transformer_cm.png"
-               width="400"
-               alt="SWIN transformer confusion matrix">
-        </a>
-        
-        <li>Maintained stable training with no observed overfitting</li>
-        <li>Demonstrated strong generalization across all 19 classes</li>
+      </ul>
+
+      <a href="images/swin_transformer_accuracy.png" target="_blank">
+        <img src="images/swin_transformer_accuracy.png"
+              width="400"
+              alt="Plot of SWIN transformer test and training accuracy">
+      </a>
+      
+      <a href="images/swin_transformer_loss.png" target="_blank">
+        <img src="images/swin_transformer_loss.png"
+              width="400"
+              alt="Plot of SWIN transformer test and training loss">
+      </a>
+
+      <ul>
+        <li>Training and validation accuracy increased steadily, indicating effective learning.</li>
+        <li>Training and validation loss consistently decreased throughout training.</li>
+        <li>Close alignment between training and validation curves suggests strong generalization.</li>
+        <li>Overall performance indicates the model achieves high accuracy without overfitting.</li>
+      </ul>
+      
+      
+      <a href="images/SWIN_cm.png" target="_blank">
+        <img src="images/SWIN_cm.png"
+              width="400"
+              alt="SWIN transformer confusion matrix">
+      </a>
+      
+      <ul>
+        <li>
+          The confusion matrix shows strong class-wise performance, further supporting the model’s robustness.
+        </li>
       </ul>
     
-      <h3>Baseline Models (Team Comparison)</h3>
+      <h3>Baseline Models (Team Contributions)</h3>
       <ul>
-        <li><strong>ResNet50:</strong> Strong performance with 83.9% test accuracy and 0.826 weighted F1</li>
-        <li><strong>EfficientNetB0:</strong> Moderate accuracy but poor weighted F1 due to class imbalance</li>
-        <li><strong>Multilayer Perceptron:</strong> Performed poorly on large-scale multi-class image data</li>
+        <li><strong>ResNet50:</strong> Served as a strong convolutional baseline, achieving 83.9% test accuracy
+            and a weighted F1 score of 0.826.</li>
+        <li><strong>EfficientNet:</strong> Reached moderate test accuracy but exhibited severe class imbalance,
+            resulting in a very low weighted F1 score.</li>
+        <li><strong>Multilayer Perceptron (MLP):</strong> Functioned as a non-convolutional baseline and struggled
+            to scale to high-dimensional, multi-class image data.</li>
       </ul>
       
       <details>
-        <summary>View results for baseline models (ResNet, EfficientNet, MLP)</summary>
+        <summary><strong>View detailed results for baseline models (ResNet, EfficientNet, MLP)</strong></summary>
     
         <p>
           The following models were evaluated during development but underperformed
@@ -225,37 +243,23 @@
         </p>
 
         <h4>EfficientNet</h4>
-          <a href="images/efficientnet_accuracy_loss.png" target="_blank">
-            <img src="images/efficientnet_accuracy_loss.png"
-                alt="EfficientNet training and testing accuracy/loss"
-                width="400">
-          </a>
-          <p>Data</p>
+          
           <a href="images/efficientnet_cm.png" target="_blank">
             <img src="images/efficientnet_cm.png"
                 alt="EfficientNet confusion matrix"
                 width="400">
           </a>
 
-          <h4>ResNet50</h4>
-          <a href="images/resnet_accuracy.png" target="_blank">
-            <img src="images/resnet_accuracy.png"
-                alt="ResNet training and testing accuracy"
-                width="400">
-          </a>
-
-          <a href="images/resnet_cm.png" target="_blank">
-            <img src="images/resnet_cm.png"
-                alt="ResNet confusion matrix"
-                width="400">
-          </a>
+          <ul>
+            <li>Achieved a test accuracy of 80.2%, but a very low weighted F1 score of 0.069, indicating
+              strong class imbalance effects and poor per-class performance.</li>
+            <li>The confusion matrix reveals extensive misclassification across classes, including a strong
+              bias toward the dominant class as well as a high number of false negatives within the
+              majority class itself, indicating poor class separation overall.</li>
+          </ul>
+          
 
           <h4>Multilayer Perceptron</h4>
-          <a href="images/MLP_accuracy.png" target="_blank">
-            <img src="images/MLP_accuracy.png"
-                alt="MLP training and testing accuracy"
-                width="400">
-          </a>
 
           <a href="images/MLP_cm.png" target="_blank">
             <img src="images/MLP_cm.png"
@@ -263,16 +267,46 @@
                 width="400">
           </a>
 
+          <ul>
+            <li>Achieved a test accuracy of 49.0% with a weighted F1 score of 0.576, indicating limited overall
+                performance but improved class-level balance compared to EfficientNet.</li>
+            <li>The confusion matrix shows greater concentration along the diagonal than EfficientNet,
+                suggesting better handling of class imbalance, though a substantial number of false positives
+                and false negatives remain.</li>
+          </ul>
+
+          <h4>ResNet50</h4>
+
+          <a href="images/resnet_cm.png" target="_blank">
+            <img src="images/resnet_cm.png"
+                alt="ResNet confusion matrix"
+                width="400">
+          </a>
+
+          <ul>
+            <li>Achieved a test accuracy of 83.9% and a weighted F1 score of 0.826, demonstrating
+                improved performance over EfficientNet and MLP.</li>
+            <li>The confusion matrix exhibits strong diagonal alignment, with most errors concentrated between
+                visually similar classes (e.g., skin_benign vs. skin_melanoma), suggesting remaining challenges
+                in fine-grained visual discrimination.</li>
+          </ul>
+
       </details>
       
     
-      <h3>Results & Conclusions</h3>
+      <h3>Conclusion</h3>
       <ul>
-        <li>Swin Transformer significantly outperformed all baseline CNN and MLP models</li>
-        <li>Hierarchical attention proved highly effective for large, diverse medical image datasets</li>
-        <li>Weighted F1 score confirmed robust performance across imbalanced cancer classes</li>
-        <li>Results highlight Swin Transformers as a strong backbone for medical imaging tasks</li>
+        <li>Swin Transformer achieved the best overall performance, significantly outperforming all
+            baseline models.</li>
+        <li>Hierarchical attention enabled effective modeling of complex and visually similar cell types.</li>
+        <li>Weighted F1 score confirmed consistent performance across imbalanced cancer classes.</li>
+        <li>The findings support Swin Transformers as a compelling architecture for medical imaging
+            applications.</li>
       </ul>
+      <p>
+        Overall, this project demonstrates the advantages of transformer-based architectures over
+        traditional convolutional and fully connected models for large-scale medical image classification.
+      </p>
 
       <h3>Links</h3>
         <ul>
@@ -282,6 +316,14 @@
     </section>
 
     <section>
+      <h2>Capstone-level R&D project</h2>
+        <span title="Click to see detailed project on Research page">
+          (<a href="research.html#scripture-connections" class="text-link">project details</a>)
+        </span>
+      </li>
+    </section>
+
+    <!-- <section>
       <h2>Captcha Recognition <span class="project-year">(Fall 2023)</span></h2></h2>
       <p>Deep learning project to train a model to recognize and solve text-based and image-based captchas. code found at ...</p>
       <ul>
@@ -297,7 +339,7 @@
           <li><a href="https://github.com/rymayl33/captcha_recognition" class="text-link">Github Repository</a></li>
           <li><a href="docs/captcha_report.pdf" target="_blank" rel="noopener" class="text-link">Project Report (PDF)</a></li></li>
         </ul>
-    </section>
+    </section> -->
 
   </div>
 
