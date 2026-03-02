@@ -39,7 +39,6 @@ body {
 .nav-links {
   display: flex;
   justify-content: center;
-  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -321,6 +320,10 @@ figcaption {
   .figure-600 img {
     width: 90%;
     height: auto;
+  }
+
+  .footer-nav {
+    display: none;
   }
 
   @media (max-width: 450px) {
