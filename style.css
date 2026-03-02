@@ -1,6 +1,7 @@
 /* ===== Header & Navigation ===== */
 html {
   forced-color-adjust: none;
+  font-size: 17px;
 }
 
 header {
@@ -12,7 +13,7 @@ header {
 
 :root {
   --bg-color: #ffffff;
-  --text-color: #000000;
+  --text-color: #000000;                                                                  
 }
 
 html.dark {
@@ -84,14 +85,14 @@ html.dark #theme-toggle .moon {
 }
 
 p {
-  font-size: 18px;
+  font-size: 1.1rem;
   line-height: 1.5;
 }
 
 nav a {
   color: white;
   margin: 0 15px;
-  font-size: 18px;
+  font-size: 1.2rem;
   text-decoration: none;
   font-weight: bold;
 }
@@ -102,7 +103,7 @@ nav a:hover {
 
 /* ===== Layout ===== */
 .container {
-  max-width: 850px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
   text-align: left;
@@ -110,6 +111,52 @@ nav a:hover {
 
 h2 {
   margin-top: 40px;
+}
+
+/* ==== figures ==== */
+.figure-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap; /* allows stacking on small screens */
+}
+
+.figure-600 {
+  margin: 0 auto;
+  max-width: 600px; 
+  text-align: center;
+}
+
+.figure-cm {
+  margin: 0 auto;
+  max-width: 400px; 
+  text-align: center;
+}
+
+.figure-400 {
+  margin: 0;
+  max-width: 400px;
+  text-align: center;
+}
+
+.figure-350 {
+  margin: 0;
+  max-width: 350px;
+  text-align: center;
+}
+
+.figure-row img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.4;
 }
 
 /* ===== Footer ===== */
@@ -129,13 +176,17 @@ h2 {
 }
 
 .short-page .container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: left;
   flex: 1;
 }
 
 .video-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  margin: 0 auto;
+  max-width: 600px; 
+  text-align: center;
 }
 
 .text-link:link {
@@ -261,36 +312,56 @@ h2 {
     flex: 0 1 auto;        
   }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;   /* below header */
-    right: 10px;
-    width: 180px;
-    background-color: #009688;
-    border: 1px solid #ccc;
-    z-index: 1000;
+  .video-container,
+  .figure-600 {
+    max-width: 90%; 
   }
 
-  .nav-links.active {
-    display: flex; 
+  .video-container video,
+  .figure-600 img {
+    width: 90%;
+    height: auto;
   }
 
-  .nav-toggle {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 10px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 1100; /* above menu */
-    line-height: 60px; /* vertically center */
+  @media (max-width: 450px) {
+    .figure-350,
+    .figure-400,
+    .figure-cm {
+      max-width: 90%;
+    }
+
+    .figure-350 img,
+    .figure-400 img,
+    .figure-cm img {
+      width: 90%;
+      height: auto;
+    }
   }
 
-  @media (max-width: 768px) {
-    .DCR-results {
+  @media (max-width: 900px) {
+    .nav-links {
+      display: none;
       flex-direction: column;
+      position: absolute;
+      top: 140px;   /* below header */
+      right: 10px;
+      width: 150px;
+      background-color: #868686;
+      border: 1px solid #ccc;
+      z-index: 1000;
+    }
+
+    .nav-links.active {
+      display: flex; 
+    }
+
+    .nav-toggle {
+      display: block;
+      position: absolute;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+      line-height: 60px; /* vertically center */
     }
   }
 }

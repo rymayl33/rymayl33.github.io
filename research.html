@@ -48,6 +48,7 @@
         <li><a href="projects.html">Projects</a></li>
         <li><a href="research.html" class="active">Research</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="docs/Rylee_Albrecht_Resume.pdf" target="_blank">Resume</a></li>
       </ul>
   
       <div class="nav-toggle" id="nav-toggle">&#9776;</div>
@@ -57,67 +58,197 @@
   <div class="container">
 
     <section>
-      <h2>Research Interests</h2>
+      <h2>Harvard Aging Brain Study (Summer 2024)</h2>
       <p>
-        My research focuses on medical image analysis, computational healthcare, and deep learning.
-        I am especially interested in segmentation, representation learning, and transformer-based models.
-      </p>
-    </section>
-
-    <section>
-      <h2>Harvard Aging Brain Study (2024)</h2>
+      Served as a research intern on the Data Analytics team for the 
       <a href="https://habs.mgh.harvard.edu/" target="_blank" class="text-link">
-        HABS website
-      </a>
-    </section>
+      Harvard Aging Brain Study
+      </a>. While the team primarily worked on data processing and statistical analysis, I contributed by helping initiate and develop machine learning projects.
+      </p>
 
-    <section>
-      <h2>Perception Control & Cognition Lab (2023-2024)</h2>
-      <a href="docs/Mimicking Persuasive Conversational Dynamics with Language Models.pdf" target="_blank" class="text-link">
-        Download Conference Presentation (PDF)
-      </a>
-
-      <div class="PCCL-image">
-        <a href="images/pfg_ex.png" target="_blank">
-          <img
-            src="images/pfg_ex.png"
-            width="400"
-            alt="Example of">
-        </a>
-      </div>
-
-      <div class="PCCL-image">
-        <a href="images/ip_ex.png" target="_blank">
-          <img
-            src="images/ip_ex.png"
-            width="400"
-            alt="Example of">
-        </a>
-
-        <div class="PCCL-image">
-          <a href="images/fp_ex.png" target="_blank">
-            <img
-              src="images/fp_ex.png"
-              width="400"
-              alt="Example of">
-          </a>
-        </div>
-      </div>
-    </section>
-     
-    <section>
-      <h2>Interdisciplinary Computational Health Sciences Research Group</h2>
-      <p>Research group composed of professors and students from Computer Science, Statistics, and Public Health, working to find possible causes for public health patterns and predictions.</p>
+      <h3>My Contributions</h3>
       <ul>
-        <li>Breast Cancer</li>
-        <li>Bullying</li>
-        <li>Suicide</li>
+        <li>Preprocessed NIfTI neuroimages, including normalization and registration to MNI space</li>
+        <li>Adapted a diffusion model for cross-modality MRI synthesis (T1-T2) to reduce the need for additional scans</li>
+        <li>Performed statistical analysis and visualization in R on neurological datasets</li>
       </ul>
     </section>
 
+    <hr class="section-divider">
+
+    <section>
+      <h2>Perception Control & Cognition Lab (May 2023-May 2024)</h2>
+      <p>Conducted research in computational social science investigating whether large language models (LLMs) can simulate human behavior when conditioned on demographic attributes such as age, race, 
+        education, religion, ideology, and income, building upon prior lab work published in <a href="https://arxiv.org/pdf/2209.06899" target="_blank" class="text-link"> Out of One, Many: Using Language Models to Simulate Human Samples (2022)</a>.</p>
+
+      <h3>My Contributions</h3>
+      <ul>
+        <li>Crafted and optimized prompts for LLMs (e.g., LLaMA-2, GPT-4, and Claude) to model human behavior across demographic groups.</li>
+        <li>Designed and conducted LLM-to-LLM conversational experiments, comparing synthetic dialogues to real human conversations using statistical metrics (accuracy, chi-squared) and text analysis 
+          (sentiment and content evaluation).</li>
+        <li>Fine-tuned large-scale LLaMA models on a high-performance computing (HPC) cluster with SLURM for distributed training.</li>
+        <li>Optimized LLM experimentation by testing prompts at small scale before running full 1000-conversation experiments, reducing costs and speeding up iteration.</li>
+      </ul>
+
+      <h3>Primary Study: Mimicking Conversational Dynamics</h3>
+      <ul>
+        <li>Awarded 1st Place – Data Science Session at the Brigham Young University Student Research Conference
+          <a href="docs/Mimicking Persuasive Conversational Dynamics with Language Models.pdf" target="_blank" class="text-link">(Presentation Slides)</a>.
+        </li>
+        <li>Used the <a href="https://convokit.cornell.edu/documentation/persuasionforgood.html" target="_blank" class="text-link">Persuasion For Good dataset</a>, 
+          which contains multi-turn conversations between a persuader and a persuadee, ending with a donation decision.</li>
+        <li>Generated simulated conversations using GPT-4 to evaluate whether LLMs can replace or augment costly human subject studies.</li>
+        <li>Each simulated dialogue consisted of ~10 conversational turns followed by a binary donation outcome.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>Generated 1,000 simulated conversations using both the initial and revised prompting strategies.</li>
+        <li>Initial prompting resulted in an 80% donation rate, substantially higher than the real human baseline of 54%.</li>
+        <li>Revised prompting achieved a 55% donation rate, showing no statistically significant difference from real human behavior.</li>
+        <li>As shown in Figure 1, alignment with human donation behavior improved across all demographic groups with the revised prompt, especially for ideology, religion, and income.</li>
+      </ul>
+
+      <figure class="figure-600">
+        <a href="images/demographics.png" target="_blank">
+          <img
+            src="images/demographics.png"
+            width="600"
+            alt="Bar Chart of donation frequency, split by demographics">
+        </a>
+        <figcaption>
+          Figure 1: Donation frequency by demographics. Revised prompting closely matches the real human distribution,
+          while initial prompting consistently overestimates donation likelihood.
+        </figcaption>
+      </figure>
+
+      <h3>Key Findings</h3>
+      <ul>
+        <li>Initial prompts mirrored the original human study instructions, causing GPT-4 to behave overly polite and helpful and
+          produce unrealistically high donation rates.</li>
+        <li>The model frequently produced non-human behaviors, including hallucinated charity details and invalid donation amounts exceeding allowed limits.</li>
+        <li>Incorporating real demographic profiles and explicit reminders that donation was optional significantly improved the realism of simulated conversations.</li>
+        <li>Revised prompting reduced model bias toward donating and better captured human decision-making dynamics.</li>
+        <li>Demonstrated that LLMs require fundamentally different prompting strategies than humans to accurately simulate social behavior.</li>
+      </ul>
+
+      <h3>Additional Research</h3>
+      <ul>
+        <li>
+          <strong>Simulating human responses to multiple choice questions</strong> —
+          Created prompt templates that incorporated demographic attributes to test whether LLMs would answer controversial questions similarly to the humans represented by those demographics.
+        </li>
+        <li>
+          <strong>Political debate simulations and bias evaluation</strong> —
+          Conducted LLM-to-LLM debates on divisive political topics (e.g., abortion, gun control, immigration), 
+          assigning one model a Democratic perspective and the other a Republican perspective to analyze persuasion and detect political bias in the models.
+          </li>
+      </ul>
+
+    </section>
+    
+    <hr class="section-divider">
+
+    <section>
+      <h2>Interdisciplinary Computational Health Sciences (Nov 2023 – Apr 2024)</h2>
+      <p>Collaborated in an interdisciplinary research team of Computer Science, Statistics, and Public Health faculty and students to investigate large-scale public health patterns using machine learning and statistical modeling.</p>
+
+      <h3>My Contributions</h3>
+      <ul>
+        <li>Performed preprocessing and feature engineering for Emergency Room (ER) and Healthy Places Index (HPI) datasets, transforming raw clinical and socioeconomic data into structured inputs for predictive modeling.</li>
+        <li>Trained and evaluated multiple machine learning models (LightGBM, XGBoost, Random Forest), analyzing feature importance to identify key predictors contributing to ER diagnoses.</li>
+
+      </ul>
+    
+      <h3>Primary Study: Predicting Maternal Health Complications</h3>
+      <ul>
+        <li>Framed maternal health complication prediction as a binary classification task, modeling whether a patient would experience any complication during pregnancy, labor, or postpartum using merged ER and HPI datasets.</li>
+        <li>Implemented and compared four models — Logistic Regression, XGBoost, K-Nearest Neighbors, and a Neural Network — applying feature selection and grid search hyperparameter tuning for each.</li>
+      </ul> 
+    
+      <h3>Results</h3>
+      <ul>
+        <li>All models achieved comparable overall accuracy (high 70s–low 80%), with high recall (0.82–0.91) and low precision (0.12–0.13), reflecting substantial class imbalance.</li>
+        <li>Confusion matrices confirmed that the models correctly identified most complication cases but over-predicted negatives, consistent with the dataset imbalance.</li>
+        <li>Logistic Regression achieved the highest recall among all models while maintaining competitive accuracy.</li>
+      </ul>
+    
+      <div class="figure-row">
+        <figure class="figure-400">
+        <a href="images/MC_performace_bar_chart.png" target="_blank">
+          <img src="images/MC_performace_bar_chart.png"
+              alt="Model Performance Comparison Bar Chart (Precision, Recall, and Accuracy)"
+              width="400">
+        </a>
+
+        <figcaption>
+          Figure 1: Comparison of model performance (accuracy, precision, recall) for predicting maternal health complications. Models showed similar accuracy, high recall, and low precision, 
+          reflecting class imbalance and the emphasis on minimizing false negatives.
+        </figcaption>
+        </figure>
+      
+        <figure class="figure-350">
+        <a href="images/MC_LR_CM.png" target="_blank">
+          <img src="images/MC_LR_CM.png"
+              alt="Confusion Matrix of Logistic Regression model"
+              width="350">
+        </a>
+
+        <figcaption>
+          Figure 2: Confusion matrix for the Logistic Regression model predicting maternal health complications. The model achieved high recall, identifying most complication cases, with class 
+          imbalance reflected in the large number of negative cases.
+        </figcaption>
+        </figure>
+      </div>
+
+      <h3>Key Findings</h3>
+      <ul>
+        <li>Prioritizing recall was clinically important to minimize false negatives, as failing to flag a high-risk patient could delay intervention, whereas false positives allow for preventative monitoring.</li>
+        <li>Consistently important predictors across models included age_group, previous C-section, multiple gestation, prolonged pregnancy, and high-risk pregnancy indicators, highlighting key factors for maternal complication risk assessment.</li>
+        <li>Logistic Regression was selected as the preferred model due to its high recall and interpretability, providing actionable and transparent guidance for clinical decision-making.</li>
+      </ul>
+    
+      <h3>Additional Research</h3>
+      <ul>
+        <li>
+          <strong>Exploring Suicide Ideation Risk Factors</strong> — Applied LightGBM to identify diagnosis codes with high feature importance for predicting presence of suicidal ideation, supporting early-risk detection analysis.
+        </li>
+      </ul>
+    </section>
+    
+
+    <hr class="section-divider">
+
     <section id="scripture-connections">
-      <h2>Capstone-level R&D project</h2>
-      <p></p>
+      <h2>Capstone-level R&D project (Sept 2023-Apr 2024)</h2>
+      <p>Developed a web application for scripture study featuring cross-lingual semantic search using OpenAI text embeddings. Embedded multilingual queries and aggregated cosine similarity 
+          scores to improve passage retrieval and recommendations.</p>
+
+      <h3>My Contributions</h3>
+      <ul>
+        <li>Implemented a multi-granularity embedding strategy (book-, chapter-, paragraph-, multi-sentence-, sentence-, and word-level) to optimize retrieval precision and contextual relevance.</li>
+        <li>Applied KMeans clustering to chapter-level text using sentence embeddings to group thematically similar passages, then computed cosine similarity between cluster centroids and word-level embeddings to infer themes.</li>
+        <li>Evaluated multilingual semantic search by translating queries across languages and comparing retrieved passages to assess cross-lingual consistency.</li>
+        <li>Collaborated on building and integrating the embedding pipeline into the web application backend.</li>
+      </ul>
+
+      <h3>Key Findings</h3>
+      <ul>
+        <li>Retrieval improved when combining cosine similarity scores from both English and a secondary language. English-only search tended to prioritize similar wording, while other languages better captured semantic meaning. Aggregating both improved overall relevance.</li>
+        <li>KMeans clustering effectively grouped thematically similar passages; however, automated theme labeling required additional heuristics (e.g., top 5 word matches per cluster) for interpretability.</li>
+      </ul>
+      <figure class="figure-600">
+        <a href="images/pca_embeddings.png" target="_blank">
+          <img
+            src="images/pca_embeddings.png"
+            width="600"
+            alt="Scatter plot of english vs mandarin cosine similarities, two passages shown that are high in both">
+        </a>
+        <figcaption>      
+          Figure 1: Cosine similarity of Scripture passages to a compassion-related query in English (x-axis) and Mandarin (y-axis). Each point represents a passage; highlighted results show top matches with high cross-lingual semantic similarity.
+        </figcaption>
+      </figure>
+
     </section>
 
   </div>
@@ -130,6 +261,7 @@
         <a href="projects.html">Projects</a>
         <a href="research.html" class="active">Research</a>
         <a href="contact.html">Contact</a>
+        <a href="docs/Rylee_Albrecht_Resume.pdf" target="_blank">Resume</a>
       </nav>
   
       <p>© 2025 Rylee Albrecht — All Rights Reserved</p>

@@ -48,6 +48,7 @@
         <li><a href="projects.html" class="active">Projects</a></li>
         <li><a href="research.html">Research</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="docs/Rylee_Albrecht_Resume.pdf" target="_blank">Resume</a></li>
       </ul>
   
       <div class="nav-toggle" id="nav-toggle">&#9776;</div>
@@ -104,16 +105,16 @@
           <li><a href="docs/Photography Agent Report.pdf" target="_blank" rel="noopener" class="text-link">Project Report (PDF)</a></li></li>
         </ul>
     
-      <h3>Demo of Photography Agent</h3>
-      <a href="videos/photo_agent_demo.mp4" class="text-link">Watch demo in new tab</a>
       <div class="video-container">
-        <video width="800" controls>
+        <h3>Demo of Photography Agent <a href="videos/photo_agent_demo.mp4" class="text-link"> (link)</a> </h3>
+        <video width="600" controls>
           <source src="videos/photo_agent_demo.mp4" preload="metadata" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
     </section>
     
+    <hr class="section-divider">
 
     <section>
       <h2>Diabetic Retinopathy Classification Preprocessing Evaluation <span class="project-year">(Spring 2024)</span></h2>
@@ -140,19 +141,26 @@
         <div class="DRC-results-text">
           <ul>
             <li>Evaluated accuracy, precision, recall, and F1-scores of each model fine-tuned on data using each preprocessing method.</li>
-            <li>Plot shows that preprocessing effectiveness is model-dependent, with CLAHE + Gaussian filtering improving ResNet-50 and EfficientNet performance, while the hybrid DenseSwin model performed best with standard preprocessing.</li>
-            <li>This highlights the importance of architecture-aware preprocessing strategies for DR screening systems.</li>
+            <li>Figure 1 shows that preprocessing effectiveness is model-dependent, with CLAHE + Gaussian filtering improving ResNet-50 and EfficientNet performance, while the hybrid DenseSwin model performed best with standard preprocessing.</li>
           </ul>
         </div>
+        
+        <figure class="figure-600">
+        <a href="images/DRC_plots.png" target="_blank">
+          <img src="images/DRC_plots.png"
+              alt="Comparison of model performance across five image preprocessing methods."
+              width="600">
+        </a>
 
-        <div class="DRC-image">
-          <a href="images/DRC_plots.png" target="_blank">
-            <img
-              src="images/DRC_plots.png"
-              width="400"
-              alt="Plot of model performance across preprocessing methods">
-          </a>
-        </div>
+        <figcaption>
+          Figure 1: Comparison of model performance across five image preprocessing methods. Bar plots show Accuracy, Precision, Recall, and F1-score for three models evaluated under each preprocessing technique.
+        </figcaption>
+        </figure>
+
+        <h3>Key Findings</h3>
+        <ul>
+          <li>This project highlights the importance of architecture-aware preprocessing strategies for DR screening systems.</li>
+        </ul>
       </div>
 
       <h3>Links</h3>
@@ -161,6 +169,8 @@
           <li><a href="docs/DR_processing_eval_report.pdf" target="_blank" rel="noopener" class="text-link">Project Report (PDF)</a></li>
         </ul>
     </section>
+
+    <hr class="section-divider">
 
     <section>
       <h2>Cell Type & Cancer Classification <span class="project-year">(Fall 2024)</span></h2>
@@ -174,16 +184,18 @@
       <ul>
         <li>Fine-tuned and evaluated 4 models(ResNet, EfficientNet, Multilayer Perceptron (MLP), and Swin transformer) using the
           <a href="https://www.kaggle.com/datasets/johncapocyan/cellnet-beta-version" class="text-link">CellNet</a> dataset</li>
-        <li>Evaluated models using test accuracy, weighted F1-score, training computation time, and confusion matrices</li>
+        <li>Evaluated models using test accuracy, weighted F1-score, and confusion matrices</li>
       </ul>
     
       <h3>Swin Transformer (Primary Contribution)</h3>
       <ul>
         <li>Implemented a hierarchical Swin Transformer for large-scale medical image classification</li>
-        <li>Used shifted-window self-attention for efficient, scalable training</li>
         <li>Explored architectural trade-offs to reduce compute without sacrificing accuracy</li>
-        <li>Reduced embedding dimension and attention heads to significantly improve runtime</li>
-        <li>Performed grid search over learning rate, batch size, and MLP ratio</li>
+        <li>Performed a grid search to optimize hyperparameters, including learning rate, batch size, and MLP ratio.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
         <li>Final configuration achieved:
           <ul>
             <li><strong>Test Accuracy:</strong> 97.6%</li>
@@ -192,37 +204,48 @@
         </li>
       </ul>
 
-      <a href="images/swin_transformer_accuracy.png" target="_blank">
-        <img src="images/swin_transformer_accuracy.png"
-              width="400"
-              alt="Plot of SWIN transformer test and training accuracy">
-      </a>
-      
-      <a href="images/swin_transformer_loss.png" target="_blank">
-        <img src="images/swin_transformer_loss.png"
-              width="400"
-              alt="Plot of SWIN transformer test and training loss">
-      </a>
+      <div class="figure-row">
+        <figure class="figure-400">
+        <a href="images/swin_transformer_accuracy.png" target="_blank">
+          <img src="images/swin_transformer_accuracy.png"
+              alt="Plot of SWIN transformer test and training accuracy"
+              width="400">
+        </a>
 
-      <ul>
-        <li>Training and validation accuracy increased steadily, indicating effective learning.</li>
-        <li>Training and validation loss consistently decreased throughout training.</li>
-        <li>Close alignment between training and validation curves suggests strong generalization.</li>
-        <li>Overall performance indicates the model achieves high accuracy without overfitting.</li>
-      </ul>
+        <figcaption>
+          Figure 1: Training and validation accuracy curves of the Swin Transformer model across epochs. The model demonstrates progressive convergence, with validation accuracy closely tracking 
+          training accuracy, indicating effective generalization and minimal overfitting.
+        </figcaption>
+        </figure>
       
-      
-      <a href="images/SWIN_cm.png" target="_blank">
-        <img src="images/SWIN_cm.png"
-              width="400"
-              alt="SWIN transformer confusion matrix">
-      </a>
-      
-      <ul>
-        <li>
-          The confusion matrix shows strong class-wise performance, further supporting the model’s robustness.
-        </li>
-      </ul>
+        <figure class="figure-400">
+        <a href="images/swin_transformer_loss.png" target="_blank">
+          <img src="images/swin_transformer_loss.png"
+              alt="Plot of SWIN transformer test and training loss"
+              width="400">
+        </a>
+
+        <figcaption>
+          Figure 2: Training and validation loss curves of the Swin Transformer model over epochs. The decreasing loss indicates stable convergence, with validation loss closely following 
+          training loss, suggesting effective generalization.
+        </figcaption>
+        </figure>
+      </div>
+
+      <p></p>
+
+      <figure class="figure-cm">
+        <a href="images/SWIN_cm.png" target="_blank">
+          <img src="images/SWIN_cm.png"
+              alt="SWIN transformer confusion matrix"
+              width="400">
+        </a>
+
+        <figcaption>
+          Figure 3: Confusion matrix of the Swin Transformer model on the test set, showing classification performance across 19 categories. Most predictions lie on the diagonal, indicating 
+          high accuracy, with few false positives or false negatives.
+        </figcaption>
+      </figure>
     
       <h3>Baseline Models (Team Contributions)</h3>
       <ul>
@@ -239,74 +262,84 @@
     
         <p>
           The following models were evaluated during development but underperformed
-          relative to the Swin Transformer in terms of weighted F1 score and convergence.
+          relative to the Swin Transformer in both weighted F1-score and convergence.
         </p>
 
-        <h4>EfficientNet</h4>
-          
+        <figure class="figure-cm">
+          <h4>EfficientNet</h4>
           <a href="images/efficientnet_cm.png" target="_blank">
             <img src="images/efficientnet_cm.png"
                 alt="EfficientNet confusion matrix"
                 width="400">
           </a>
 
-          <ul>
-            <li>Achieved a test accuracy of 80.2%, but a very low weighted F1 score of 0.069, indicating
-              strong class imbalance effects and poor per-class performance.</li>
-            <li>The confusion matrix reveals extensive misclassification across classes, including a strong
-              bias toward the dominant class as well as a high number of false negatives within the
-              majority class itself, indicating poor class separation overall.</li>
-          </ul>
-          
+          <figcaption>
+            Figure 4: Confusion matrix of the EfficientNet model on the test set, showing classification performance across 19 categories.
+          </figcaption>
+        </figure>
 
+        <ul>
+          <li>Achieved a test accuracy of 80.2%, but a very low weighted F1 score of 0.069, indicating
+            strong class imbalance effects and poor per-class performance.</li>
+          <li>The confusion matrix reveals extensive misclassification across classes, including a strong
+            bias toward the dominant class as well as a high number of false negatives within the
+            majority class itself, indicating poor class separation overall.</li>
+        </ul>
+
+        <figure class="figure-cm">
           <h4>Multilayer Perceptron</h4>
-
           <a href="images/MLP_cm.png" target="_blank">
-            <img src="images/MLP_cm.png"
-                alt="MLP confusion matrix"
-                width="400">
+          <img src="images/MLP_cm.png"
+              alt="MLP confusion matrix"
+              width="400">
           </a>
 
-          <ul>
-            <li>Achieved a test accuracy of 49.0% with a weighted F1 score of 0.576, indicating limited overall
-                performance but improved class-level balance compared to EfficientNet.</li>
-            <li>The confusion matrix shows greater concentration along the diagonal than EfficientNet,
-                suggesting better handling of class imbalance, though a substantial number of false positives
-                and false negatives remain.</li>
-          </ul>
+          <figcaption>
+            Figure 5: Confusion matrix of the Multilayer Perceptron model on the test set, showing classification performance across 19 categories.
+          </figcaption>
+        </figure>
 
+        <ul>
+          <li>Achieved a test accuracy of 49.0% with a weighted F1 score of 0.576, indicating limited overall
+              performance but improved class-level balance compared to EfficientNet.</li>
+          <li>The confusion matrix shows greater concentration along the diagonal than EfficientNet,
+              suggesting better handling of class imbalance, though a substantial number of false positives
+              and false negatives remain.</li>
+        </ul>
+
+        <figure class="figure-cm">
           <h4>ResNet50</h4>
-
           <a href="images/resnet_cm.png" target="_blank">
-            <img src="images/resnet_cm.png"
-                alt="ResNet confusion matrix"
-                width="400">
+          <img src="images/resnet_cm.png"
+              alt="ResNet confusion matrix"
+              width="400">
           </a>
 
-          <ul>
-            <li>Achieved a test accuracy of 83.9% and a weighted F1 score of 0.826, demonstrating
-                improved performance over EfficientNet and MLP.</li>
-            <li>The confusion matrix exhibits strong diagonal alignment, with most errors concentrated between
-                visually similar classes (e.g., skin_benign vs. skin_melanoma), suggesting remaining challenges
-                in fine-grained visual discrimination.</li>
-          </ul>
+          <figcaption>
+            Figure 6: Confusion matrix of the ResNet50 model on the test set, showing classification performance across 19 categories.
+          </figcaption>
+        </figure>
+
+        <ul>
+          <li>Achieved a test accuracy of 83.9% and a weighted F1 score of 0.826, demonstrating
+              improved performance over EfficientNet and MLP.</li>
+          <li>The confusion matrix exhibits strong diagonal alignment, with most errors concentrated between
+              visually similar classes (e.g., skin_benign vs. skin_melanoma), suggesting remaining challenges
+              in fine-grained visual discrimination.</li>
+        </ul>
 
       </details>
       
     
-      <h3>Conclusion</h3>
+      <h3>Key Findings</h3>
       <ul>
         <li>Swin Transformer achieved the best overall performance, significantly outperforming all
             baseline models.</li>
         <li>Hierarchical attention enabled effective modeling of complex and visually similar cell types.</li>
-        <li>Weighted F1 score confirmed consistent performance across imbalanced cancer classes.</li>
+        <li>Weighted F1-score confirmed consistent performance across imbalanced cancer classes.</li>
         <li>The findings support Swin Transformers as a compelling architecture for medical imaging
             applications.</li>
       </ul>
-      <p>
-        Overall, this project demonstrates the advantages of transformer-based architectures over
-        traditional convolutional and fully connected models for large-scale medical image classification.
-      </p>
 
       <h3>Links</h3>
         <ul>
@@ -314,6 +347,8 @@
           <li><a href="docs/Machine Learning Project Final Report.pdf" target="_blank" rel="noopener" class="text-link">Project Report (PDF)</a></li></li>
         </ul>
     </section>
+
+    <hr class="section-divider">
 
     <section>
       <h2>Capstone-level R&D project</h2>
@@ -351,6 +386,7 @@
         <a href="projects.html" class="active">Projects</a>
         <a href="research.html">Research</a>
         <a href="contact.html">Contact</a>
+        <a href="docs/Rylee_Albrecht_Resume.pdf" target="_blank">Resume</a>
       </nav>
   
       <p>© 2025 Rylee Albrecht — All Rights Reserved</p>
