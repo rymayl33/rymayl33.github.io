@@ -81,11 +81,11 @@
           </ul>
         </li>
         <li>
-          Designed and iteratively refined a <strong>custom system prompt</strong>, where prompt engineering was
-          <strong>crucial to improving response consistency, reducing hallucinations, and enforcing structured outputs</strong>
+          Designed and iteratively refined a custom system prompt, where prompt engineering was
+          crucial to improving response consistency, reducing hallucinations, and enforcing structured outputs.
         </li>
-        <li>Evaluated using a held-out, shuffled test set of 218 examples</li>
-        <li>Achieved <strong>88% overall response accuracy</strong> across tool selection and conversational tasks</li>
+        <li>Evaluated using a held-out, shuffled test set of 218 examples.</li>
+        <li>Achieved <strong>88% overall response accuracy</strong> across tool selection and conversational tasks.</li>
       </ul>
     
       <h3>System Tools (Team Contributions)</h3>
@@ -118,14 +118,14 @@
 
     <section>
       <h2>Diabetic Retinopathy Classification Preprocessing Evaluation <span class="project-year">(Spring 2024)</span></h2>
-      <p>In this project, a partner and I investigated the impact of image preprocessing techniques on diabetic retinopathy (DR) severity classification using deep learning models. To discover
-        if there is a preprocessing method that is best accross models.   
-      </p>
+      <p>In this project, a partner and I investigated the impact of image preprocessing techniques on diabetic retinopathy (DR) severity classification using deep learning models, with the 
+        goal of determining whether a single preprocessing strategy generalizes across architectures.</p>
+        
       <ul>
         <li>Fine-tuned and evaluated ResNet-50, EfficientNet, and a hybrid DenseNet–Swin Transformer (DenseSwin) on a dataset created from the 
           <a href="https://www.kaggle.com/c/aptos2019-blindness-detection" class="text-link">APTOS 2019</a> and <a href="https://www.kaggle.com/competitions/diabetic-retinopathy-detection" class="text-link">EyePACS</a> 
           retinal fundus datasets.</li>
-        <li>Compared five preprocessing pipelines, including CLAHE-based contrast enhancement, histogram equalization, Gaussian subtractive normalization, and a baseline. preprocessing</li>
+        <li>Compared five preprocessing pipelines, including CLAHE-based contrast enhancement, histogram equalization, Gaussian subtractive normalization, and a baseline preprocessing.</li>
       </ul>
 
       <h3>My Contributions</h3>
@@ -140,8 +140,9 @@
       <div class="DRC-results">
         <div class="DRC-results-text">
           <ul>
-            <li>Evaluated accuracy, precision, recall, and F1-scores of each model fine-tuned on data using each preprocessing method.</li>
-            <li>Figure 1 shows that preprocessing effectiveness is model-dependent, with CLAHE + Gaussian filtering improving ResNet-50 and EfficientNet performance, while the hybrid DenseSwin model performed best with standard preprocessing.</li>
+            <li>All three models were evaluated using accuracy, precision, recall, and F1-score across five preprocessing pipelines.</li>
+            <li>CLAHE + Gaussian filtering yielded the largest performance gains for ResNet-50 and EfficientNet relative to baseline preprocessing.</li>
+            <li>The DenseSwin model achieved its highest metrics using standard preprocessing.</li>
           </ul>
         </div>
         
@@ -159,7 +160,8 @@
 
         <h3>Key Findings</h3>
         <ul>
-          <li>This project highlights the importance of architecture-aware preprocessing strategies for DR screening systems.</li>
+          <li>Preprocessing effectiveness is architecture-dependent; contrast enhancement techniques improved CNN-based models (ResNet-50, EfficientNet), while the hybrid DenseSwin model achieved optimal performance with standard preprocessing.</li>
+          <li>No single preprocessing pipeline generalized best across all architectures, highlighting the need for joint optimization of model and input pipeline.</li>
         </ul>
       </div>
 
@@ -183,25 +185,21 @@
       </p>
       <ul>
         <li>Fine-tuned and evaluated 4 models(ResNet, EfficientNet, Multilayer Perceptron (MLP), and Swin transformer) using the
-          <a href="https://www.kaggle.com/datasets/johncapocyan/cellnet-beta-version" class="text-link">CellNet</a> dataset</li>
-        <li>Evaluated models using test accuracy, weighted F1-score, and confusion matrices</li>
+          <a href="https://www.kaggle.com/datasets/johncapocyan/cellnet-beta-version" class="text-link">CellNet</a> dataset.</li>
+        <li>Evaluated models using test accuracy, weighted F1-score, and confusion matrices.</li>
       </ul>
     
       <h3>Swin Transformer (Primary Contribution)</h3>
       <ul>
-        <li>Implemented a hierarchical Swin Transformer for large-scale medical image classification</li>
-        <li>Explored architectural trade-offs to reduce compute without sacrificing accuracy</li>
+        <li>Implemented a hierarchical Swin Transformer for large-scale medical image classification.</li>
+        <li>Explored architectural trade-offs to reduce compute without sacrificing accuracy.</li>
         <li>Performed a grid search to optimize hyperparameters, including learning rate, batch size, and MLP ratio.</li>
       </ul>
 
       <h3>Results</h3>
       <ul>
-        <li>Final configuration achieved:
-          <ul>
-            <li><strong>Test Accuracy:</strong> 97.6%</li>
-            <li><strong>Weighted F1 Score:</strong> 0.976</li>
-          </ul>
-        </li>
+        <li><strong>Test Accuracy:</strong> 97.6%</li>
+        <li><strong>Weighted F1 Score:</strong> 0.976</li>
       </ul>
 
       <div class="figure-row">
